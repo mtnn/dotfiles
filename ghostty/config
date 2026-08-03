@@ -1,0 +1,21 @@
+# ============================================
+# ~/.config/ghostty/config  (cmux + Ghostty)
+# wezterm の基本設定から移植
+# ============================================
+
+# --- Window ---
+background-opacity = 0.85
+background-blur = 20
+window-width = 180
+window-height = 50
+
+# --- Font ---
+font-family = JetBrainsMono Nerd Font
+font-family = PlemolJP Console NF
+font-family = Noto Color Emoji
+font-size = 12
+
+# --- Cursor ---
+# wezterm の SteadyBlock 相当（ブロック形状・点滅なし）
+cursor-style = block
+cursor-style-blink = false

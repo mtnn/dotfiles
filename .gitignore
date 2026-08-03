@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# install.sh が作るバックアップ
+*.bak-*
+
+# nvim (元 nvim-settings/.gitignore より)
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+.nvimlog
