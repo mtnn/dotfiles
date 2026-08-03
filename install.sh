@@ -38,6 +38,11 @@ mkdir -p "$CONFIG/ghostty"
 link "$DOTFILES/ghostty/config" "$CONFIG/ghostty/config"
 echo
 
+echo "[cmux]  (cmux 固有設定。ターミナル描画は ghostty 側)"
+mkdir -p "$CONFIG/cmux"
+link "$DOTFILES/cmux/cmux.json" "$CONFIG/cmux/cmux.json"
+echo
+
 echo "[wezterm]"
 link "$DOTFILES/wezterm" "$CONFIG/wezterm"
 echo

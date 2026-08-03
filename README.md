@@ -7,11 +7,12 @@
 | フォルダ | 内容 | リンク先 | 元リポジトリ |
 | --- | --- | --- | --- |
 | `ghostty/` | Ghostty/cmux 用ターミナル設定 | `~/.config/ghostty/config` | （本統合で新規追加） |
+| `cmux/` | cmux 固有設定（現状は雛形のみ） | `~/.config/cmux/cmux.json` | （本統合で新規追加） |
 | `wezterm/` | WezTerm 設定 | `~/.config/wezterm/` | `mtnn/wezterm-settings` |
 | `nvim/` | Neovim (LazyVim) 設定 | `~/.config/nvim/` | `mtnn/nvim-settings` |
 | `via/` | VIA キーマップ(JSON) | 自動リンクなし（VIAアプリへ手動インポート） | `mtnn/via` |
 
-`ghostty/config` は cmux も読み込みます（cmux はターミナル描画設定を Ghostty の設定ファイルから読むため）。cmux 固有の設定を管理し始めたら `cmux/cmux.json` を足して、`install.sh` に `~/.config/cmux/cmux.json` へのリンクを追記してください。
+`ghostty/config` は cmux も読み込みます（cmux はターミナル描画設定を Ghostty の設定ファイルから読むため）。cmux 固有の設定は `cmux/cmux.json` にまとめます。現状は全項目コメントアウトの雛形なので挙動はデフォルトのままで、有効化したい項目のコメントを外して使います。
 
 ## セットアップ
 

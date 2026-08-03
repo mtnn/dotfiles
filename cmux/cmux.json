@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1
+
+  // ============================================================
+  // cmux 固有の設定はここに書く（ターミナル描画は ghostty/config 側）。
+  // 反映: cmux で `cmux reload-config` または Cmd+Shift+,
+  // すべてコメントアウト中 = 現在はデフォルト挙動。
+  // 有効化したい項目のコメントを外して使う。
+  // ============================================================
+
+  // --- ペインのフォーカス移動を hjkl に寄せたい場合 ---
+  // デフォルトは ⌥⌘+矢印。hjkl 派なら下を有効化する。
+  // （Ghostty config 側の goto_split で張る方法もあり。両方はやらないこと）
+  // "shortcuts": {
+  //   "bindings": {
+  //     "focusLeft":  "opt+cmd+h",
+  //     "focusDown":  "opt+cmd+j",
+  //     "focusUp":    "opt+cmd+k",
+  //     "focusRight": "opt+cmd+l",
+  //
+  //     // 分割（デフォルト: 右=cmd+d / 下=cmd+shift+d）
+  //     // "splitRight": "cmd+d",
+  //     // "splitDown":  "cmd+shift+d",
+  //
+  //     // tmux 風のプレフィックス（chord）も使える
+  //     // "newSurface": ["ctrl+b", "c"]
+  //   }
+  // },
+
+  // --- アプリ全般（Settings > App 相当）---
+  // "app": {
+  //   "appearance": "dark",
+  //   "newWorkspacePlacement": "afterCurrent",
+  //   "confirmQuit": "always"
+  // },
+
+  // --- ターミナル挙動（Settings > Terminal 相当）---
+  // "terminal": {
+  //   "copyOnSelect": true,
+  //   "showScrollBar": false
+  // },
+
+  // --- 組み込みブラウザ ---
+  // "browser": {
+  //   "defaultSearchEngine": "google"
+  // }
+}
