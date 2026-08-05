@@ -1,16 +1,24 @@
+# dotfiles 全体の除外設定。
+# 以前はツールごとに別リポジトリだった名残で各フォルダにも .gitignore があったが、
+# 単一リポジトリ運用に合わせてここへ集約した。
+# （ネストした .gitignore も git 上は機能するが、管理点を1箇所に寄せる方針）
+
 # macOS
+# スラッシュを含まないので全階層にマッチする（wezterm/ via/ 配下も対象）
 .DS_Store
 
 # install.sh が作るバックアップ
 *.bak-*
 
-# nvim (元 nvim-settings/.gitignore より)
+# --- nvim (元 nvim-settings/.gitignore より) ---
+# スラッシュを含まないパターンは全階層マッチなので、そのまま移植で等価
 tt.*
 .tests
-doc/tags
 debug
 .repro
 foo.*
 *.log
 data
 .nvimlog
+# スラッシュを含むパターンはルート基準に固定されるため nvim/ を明示する
+nvim/doc/tags
