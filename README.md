@@ -7,12 +7,14 @@
 | フォルダ | 内容 | リンク先 | 元リポジトリ |
 | --- | --- | --- | --- |
 | `ghostty/` | Ghostty/cmux 用ターミナル設定 | `~/.config/ghostty/config` | （本統合で新規追加） |
-| `cmux/` | cmux 固有設定（現状は雛形のみ） | `~/.config/cmux/cmux.json` | （本統合で新規追加） |
+| `cmux/` | cmux 固有設定 | `~/.config/cmux/cmux.json` | （本統合で新規追加） |
 | `wezterm/` | WezTerm 設定 | `~/.config/wezterm/` | `mtnn/wezterm-settings` |
 | `nvim/` | Neovim (LazyVim) 設定 | `~/.config/nvim/` | `mtnn/nvim-settings` |
 | `via/` | VIA キーマップ(JSON) | 自動リンクなし（VIAアプリへ手動インポート） | `mtnn/via` |
 
-`ghostty/config` は cmux も読み込みます（cmux はターミナル描画設定を Ghostty の設定ファイルから読むため）。cmux 固有の設定は `cmux/cmux.json` にまとめます。現状は全項目コメントアウトの雛形なので挙動はデフォルトのままで、有効化したい項目のコメントを外して使います。
+`ghostty/config` は cmux も読み込みます（cmux はターミナル描画設定を Ghostty の設定ファイルから読むため）。フォント・配色・透過などはこちらに書きます。cmux 固有の設定（ショートカット、ペイン、サイドバー、内蔵ブラウザなど）は `cmux/cmux.json` にまとめます。
+
+`cmux.json` は JSONC（コメント可）で、書いていない項目はすべてデフォルトです。設定できる項目は `cmux docs settings` と [スキーマ](https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json)（`$schema` 指定済みなのでエディタで補完が効く）を参照。編集後は `cmux config validate` で検証できます。
 
 ## セットアップ
 

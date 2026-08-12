@@ -1,0 +1,7 @@
+{
+  // cmux.json は JSONC（コメント可）。拡張子が .json なので明示的に関連付けないと
+  // エディタが厳格 JSON として扱い、コメント行すべてに構文エラーが出る。
+  "files.associations": {
+    "cmux/cmux.json": "jsonc"
+  }
+}
