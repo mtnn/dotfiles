@@ -16,6 +16,16 @@
 
 `cmux.json` は JSONC（コメント可）で、書いていない項目はすべてデフォルトです。設定できる項目は `cmux docs settings` と [スキーマ](https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json)（`$schema` 指定済みなのでエディタで補完が効く）を参照。編集後は `cmux config validate` で検証できます。
 
+### cmux-ime-watcher（入力ソース自動切替）
+
+cmux にフォーカスが移るたびにキーボード入力を英字 (ABC) へ切り替える常駐ウォッチャーです。`cmux/cmux-ime-watcher.swift` を `install.sh` が `swiftc` でビルドして `~/.local/bin/cmux-ime-watcher` に置き、launchd agent（`cmux/local.cmux-ime-watcher.plist.template` → `~/Library/LaunchAgents/local.cmux-ime-watcher.plist`）としてログイン時に自動起動します。追加の権限（アクセシビリティ等）は不要です。
+
+- 状態確認: `launchctl print gui/$(id -u)/local.cmux-ime-watcher`
+- 停止: `launchctl bootout gui/$(id -u)/local.cmux-ime-watcher`
+- 再開/更新反映: `bash install.sh`（ビルドし直して再登録される）
+
+cmux を使用中に新しいペインを開いたケース（フォーカスイベントが発生しない）は、`~/.zshrc` 側のシェル起動時切替（`macism com.apple.keylayout.ABC`）が補完します。cmux 内で日本語を打ちたいときは、かなキーやメニューバーからの手動切替はそのまま使えます（フォーカスが移らない限り戻されません）。
+
 ## セットアップ
 
 ```sh

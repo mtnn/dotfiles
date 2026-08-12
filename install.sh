@@ -43,6 +43,23 @@ mkdir -p "$CONFIG/cmux"
 link "$DOTFILES/cmux/cmux.json" "$CONFIG/cmux/cmux.json"
 echo
 
+echo "[cmux-ime-watcher]  (cmux フォーカス時に入力ソースを ABC へ切り替える常駐ウォッチャー)"
+if command -v swiftc >/dev/null 2>&1; then
+  WATCHER_BIN="$HOME/.local/bin/cmux-ime-watcher"
+  WATCHER_PLIST="$HOME/Library/LaunchAgents/local.cmux-ime-watcher.plist"
+  mkdir -p "$HOME/.local/bin" "$HOME/Library/LaunchAgents"
+  swiftc -O "$DOTFILES/cmux/cmux-ime-watcher.swift" -o "$WATCHER_BIN"
+  echo "  build $WATCHER_BIN"
+  sed "s|__BIN__|$WATCHER_BIN|" "$DOTFILES/cmux/local.cmux-ime-watcher.plist.template" > "$WATCHER_PLIST"
+  # 既に動いていれば一度降ろしてから登録し直す（バイナリ更新を反映）
+  launchctl bootout "gui/$(id -u)/local.cmux-ime-watcher" 2>/dev/null || true
+  launchctl bootstrap "gui/$(id -u)" "$WATCHER_PLIST"
+  echo "  load  $WATCHER_PLIST"
+else
+  echo "  skip  swiftc が見つかりません (xcode-select --install で導入後に再実行してください)"
+fi
+echo
+
 echo "[wezterm]"
 link "$DOTFILES/wezterm" "$CONFIG/wezterm"
 echo
